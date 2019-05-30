@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo sự kiên bàn phím</title>
+</head>
+<body onload="docReady()">
+<img id="nobita" src="images/anh.png" style="position:absolute;left:0; top:0;" height="100" width="80"/>
+    <script>
+        var element;
+
+        // hàm xử lý khi nhấn phím lên
+        function upArrowPressed() {
+            element = document.getElementById("nobita");
+            element.style.top = parseInt(element.style.top) - 5 + 'px';
+        }
+
+        // hàm xử lý khi nhấn phím xuống
+        function downArrowPressed() {
+            element = document.getElementById("nobita");
+            element.style.top = parseInt(element.style.top) + 5 + 'px';
+        }
+
+        //hàm xử lý khi nhấn phím sang trái
+        function leftArrowPressed() {
+            element = document.getElementById("nobita");
+            element.style.left = parseInt(element.style.left) - 5 + 'px';
+        }
+
+        //hàm xử lý khi nhấn phím sang phải
+        function rightArrowPressed() {
+            element = document.getElementById("nobita");
+            element.style.left = parseInt(element.style.left) + 5 + 'px';
+        }
+
+        // hàm nhận các phím
+        function moveSelection(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    leftArrowPressed();
+                    break;
+                case 39:
+                    rightArrowPressed();
+                    break;
+                case 38:
+                    upArrowPressed();
+                    break;
+                case 40:
+                    downArrowPressed();
+                    break;
+            }
+        }
+
+        //hàm docReady()
+        function docReady() {
+            window.addEventListener('keydown', moveSelection);
+        }
+    </script>
+</body>
+</html>
